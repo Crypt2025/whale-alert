@@ -2,7 +2,7 @@ name: BTC Whale Alert
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # alle 10 Minuten
+    - cron: '*/30 * * * *'  # alle 10 Minuten
   workflow_dispatch:
 
 jobs:
