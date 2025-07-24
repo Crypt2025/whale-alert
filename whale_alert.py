@@ -5,7 +5,7 @@ import os
 TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 RSS_FEED_URL = 'https://nitter.net/whale_alert/rss'
-MIN_BTC = 10
+MIN_BTC = 1
 
 def parse_rss():
     feed = feedparser.parse(RSS_FEED_URL)
