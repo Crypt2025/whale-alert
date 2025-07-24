@@ -25,9 +25,13 @@ def parse_rss():
 def send_telegram(msg):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     payload = {'chat_id': TELEGRAM_CHAT_ID, 'text': msg}
-    requests.post(url, data=payload)
+    response = requests.post(url, data=payload)
+    print(f"Telegram API Response: {response.status_code} - {response.text}")
 
 if __name__ == "__main__":
     alerts = parse_rss()
-    for alert in alerts:
-        send_telegram(f"🐋 Neue BTC-Transaktion entdeckt:\n{alert}")
+    if not alerts:
+        send_telegram("✅ Testlauf erfolgreich: Keine Whale-Transaktion gefunden, aber der Bot funktioniert!")
+    else:
+        for alert in alerts:
+            send_telegram(f"🐋 Neue BTC-Transaktion entdeckt:\n{alert}")
