@@ -1,6 +1,6 @@
-name: BTC Whale Alert
+// name: BTC Whale Alert
 
-on:
+// on:
   schedule:
     - cron: '*/9999 * * * *'  # alle 10 Minuten
   workflow_dispatch:
